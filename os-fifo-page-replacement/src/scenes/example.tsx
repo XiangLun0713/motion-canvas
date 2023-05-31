@@ -441,21 +441,21 @@ export default makeScene2D(function* (view) {
     generators.push(
       chain(
         // highlight for loop
-        codeRef().selection(rangeCodeBlock(5, 0, 5, 30), 0.5),
+        codeRef().selection(rangeCodeBlock(5, 0, 5, 30), 0.4),
         // select current page and deselect previous page
         all(
-          inputs[prevRow][prevCol].fill(BLUE, 0.5),
-          inputs[row][col].fill(RED, 0.5)
+          inputs[prevRow][prevCol].fill(BLUE, 0.4),
+          inputs[row][col].fill(RED, 0.4)
         )
       )
     );
     generators.push(
       // play no empty frame anim
       chain(
-        codeRef().selection(rangeCodeBlock(6, 0, 7, 28), 0.5),
-        codeRef().selection(lines(14), 0.5),
+        codeRef().selection(rangeCodeBlock(6, 0, 7, 28), 0.4),
+        codeRef().selection(lines(14), 0.4),
         // highlight inner if
-        codeRef().selection(rangeCodeBlock(15, 0, 15, 43), 0.5)
+        codeRef().selection(rangeCodeBlock(15, 0, 15, 43), 0.4)
       )
     );
     // check whether page already exists in the set
@@ -467,11 +467,11 @@ export default makeScene2D(function* (view) {
         chain(
           all(
             // highlight pop code
-            codeRef().selection(lines(16, 18), 0.5),
+            codeRef().selection(lines(16, 18), 0.4),
             // fades out first element in queue and poped element in set
             all(
-              setRefs[sPopIndex].children()[0].opacity(0, 0.5),
-              queueRefs[0].children()[0].opacity(0, 0.5)
+              setRefs[sPopIndex].children()[0].opacity(0, 0.4),
+              queueRefs[0].children()[0].opacity(0, 0.4)
             )
           )
         )
@@ -484,8 +484,8 @@ export default makeScene2D(function* (view) {
         chain(
           // fades out queue item
           all(
-            queueRefs[1].children()[0].opacity(0, 0.5),
-            queueRefs[2].children()[0].opacity(0, 0.5)
+            queueRefs[1].children()[0].opacity(0, 0.4),
+            queueRefs[2].children()[0].opacity(0, 0.4)
           ),
           // update text
           all(
@@ -500,8 +500,8 @@ export default makeScene2D(function* (view) {
           ),
           // fades in queue item
           all(
-            queueRefs[0].children()[0].opacity(1, 0.5),
-            queueRefs[1].children()[0].opacity(1, 0.5)
+            queueRefs[0].children()[0].opacity(1, 0.4),
+            queueRefs[1].children()[0].opacity(1, 0.4)
           )
         )
       );
@@ -519,9 +519,9 @@ export default makeScene2D(function* (view) {
           ),
           // inject page into set
           all(
-            codeRef().selection(lines(19), 0.5),
+            codeRef().selection(lines(19), 0.4),
             // fades in element
-            setRefs[sPopIndex].children()[0].opacity(1, 0.5)
+            setRefs[sPopIndex].children()[0].opacity(1, 0.4)
           ),
           // update text
           (queueRefs[2].children()[0].children()[0] as Txt).text(
@@ -530,15 +530,15 @@ export default makeScene2D(function* (view) {
           ),
           // inject page into queue
           all(
-            codeRef().selection(lines(20), 0.5),
-            queueRefs[2].children()[0].opacity(1, 0.5)
+            codeRef().selection(lines(20), 0.4),
+            queueRefs[2].children()[0].opacity(1, 0.4)
           ),
           // update page fault
           all(
-            codeRef().selection(lines(21), 0.5),
+            codeRef().selection(lines(21), 0.4),
             chain(
               highlightText(pageFaultRef()),
-              pageFaultRef().text(`Page Faults = ${++pageFault}`, 0.2)
+              pageFaultRef().text(`Page Faults = ${++pageFault}`, 0.4)
             )
           )
         )
@@ -550,7 +550,7 @@ export default makeScene2D(function* (view) {
   yield* chain(...generators);
 
   yield* beginSlide("highlight return statement");
-  yield* codeRef().selection(lines(26, 26), 0.5);
+  yield* codeRef().selection(lines(26, 26), 0.4);
 
   yield* beginSlide("end");
 });
