@@ -446,7 +446,7 @@ export default makeScene2D(function* (view) {
         all(
           inputs[prevRow][prevCol].fill(BLUE, 0.5),
           inputs[row][col].fill(RED, 0.5)
-        ),
+        )
       )
     );
     generators.push(
@@ -455,7 +455,7 @@ export default makeScene2D(function* (view) {
         codeRef().selection(rangeCodeBlock(6, 0, 7, 28), 0.5),
         codeRef().selection(lines(14), 0.5),
         // highlight inner if
-        codeRef().selection(rangeCodeBlock(15, 0, 15, 43), 0.5),
+        codeRef().selection(rangeCodeBlock(15, 0, 15, 43), 0.5)
       )
     );
     // check whether page already exists in the set
@@ -473,8 +473,8 @@ export default makeScene2D(function* (view) {
               setRefs[sPopIndex].children()[0].opacity(0, 0.5),
               queueRefs[0].children()[0].opacity(0, 0.5)
             )
-          ),
           )
+        )
       );
       // update queue and set
       s.splice(sPopIndex, 1);
@@ -502,8 +502,8 @@ export default makeScene2D(function* (view) {
           all(
             queueRefs[0].children()[0].opacity(1, 0.5),
             queueRefs[1].children()[0].opacity(1, 0.5)
-          ),
           )
+        )
       );
 
       // update queue and set
